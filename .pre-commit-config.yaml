@@ -1,0 +1,41 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # Makes sure that no large files are added to the repository by mistake
+      # By default, this means 500KB per file
+      - id: check-added-large-files
+      # Checks that the files have valid Python code
+      - id: check-ast
+      # Checks that .json files are valid
+      - id: check-json
+      # Ensures that no merge conflict strings are present in the repository
+      - id: check-merge-conflict
+      # Checks that .toml files are valid
+      - id: check-toml
+      # Checks that .xml files are valid
+      - id: check-xml
+      # Checks that .yaml files are valid
+      - id: check-yaml
+      # Makes sure files end in a newline and only a newline.
+      - id: end-of-file-fixer
+      # Trims trailing whitespace.
+      - id: trailing-whitespace
+        # Preserve markdown hard line breaks
+        args: ["--markdown-linebreak-ext", "md"]
+
+  # Ruff for linting
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.1.13"
+    hooks:
+      - id: ruff-format
+      - id: ruff
+
+  # Mypy for linting
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v1.8.0"
+    hooks:
+      - id: mypy

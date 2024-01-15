@@ -1,0 +1,10 @@
+# This file configures poetry for this particular project. The goal of is to
+# avoid any poetry headaches by keeping settings consistent amongst collaborators.
+#
+# For more information: https://python-poetry.org/docs/configuration
+
+[virtualenvs]
+# We do not want Poetry to be responsible for creating virtual environments.
+create = false
+# We want Poetry to look for virtual environments inside the local folder.
+in-project = true

@@ -1,0 +1,38 @@
+# Ignore everything by default, and then provide exceptions for the files we do want to
+# keep track of. This helps accidentally adding files to source control and keeps the
+# .gitignore file more readable.
+
+# Ignore everything
+**/*
+
+# But don't ignore directories
+!**/
+
+# We never want to ignore .keep files (and by extension, the directories they reside in)
+!**/.keep
+
+# Root folder files
+!/.gitignore
+!/.importlinter
+!/.pre-commit-config.yaml
+!/cookiecutter.json
+!/LICENSE
+!/Makefile
+!/mkdocs.yml
+!/poetry.lock
+!/poetry.toml
+!/pyproject.toml
+!/README.md
+!/ruff.toml
+!/template.env
+
+# Github related settings
+!/.github/**/*.yml
+# source code
+!/src/**/*.py
+
+# tests
+!/tests/**/*.py
+
+# docs
+!/docs/**/*.md

@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "copywriter"
+version = "0.0.1"
+description = "Automated content generation tailored to your voice."
+authors = ["Valentin Calomme <valentin.calomme@klm.com>"]
+license = "Valentin Calomme <info@valentincalomme.com>"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.qa.dependencies]
+mypy = "^1.8.0"
+ruff = "^0.1.13"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^9.5.4"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.0"
+import-linter = "^2.0"
+
+[tool.mypy] # https://mypy.readthedocs.io/en/stable/config_file.html
+pretty = true           # output should be made pretty
+strict = true           # enable all optional checks
+warn_unreachable = true # unreachable code should be marked as errors
+
+[tool.pytest.ini_options]
+xfail_strict = true # tests marked as xfail should actually fail
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

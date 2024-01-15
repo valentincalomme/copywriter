@@ -1,0 +1,7 @@
+site_name: CABLe
+
+nav:
+  - Home: index.md
+
+theme:
+  name: material

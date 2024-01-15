@@ -1,0 +1,14 @@
+[importlinter]
+root_packages=
+    copywriter
+    tests
+
+include_external_packages=True
+
+[importlinter:contract:no-devtools-deps]
+name = Application code should not import non-application code (i.e. tests, devtools)
+type = forbidden
+source_modules =
+    copywriter
+forbidden_modules =
+    tests
