@@ -7,7 +7,7 @@ license = "Valentin Calomme <info@valentincalomme.com>"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 
 [tool.poetry.group.qa.dependencies]
 mypy = "^1.8.0"
