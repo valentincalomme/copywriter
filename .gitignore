@@ -28,8 +28,10 @@
 
 # Github related settings
 !/.github/**/*.yml
+
 # source code
 !/src/**/*.py
+!/src/copywriter/py.typed
 
 # tests
 !/tests/**/*.py
