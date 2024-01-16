@@ -35,7 +35,7 @@ jobs:
       - name: Configure Poetry for CI build
         run: poetry config --unset virtualenvs.create && poetry config --unset virtualenvs.in-project
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
