@@ -73,4 +73,7 @@ docs:
 docs-serve:
 	mkdocs serve
 
+build:
+	poetry build
+
 ci: qa docs tests
