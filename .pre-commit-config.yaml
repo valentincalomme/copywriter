@@ -27,6 +27,12 @@ repos:
         # Preserve markdown hard line breaks
         args: ["--markdown-linebreak-ext", "md"]
 
+  # Import-linter to check project structure
+  - repo: https://github.com/seddonym/import-linter/
+    rev: "v2.0"
+    hooks:
+      - id: import-linter
+
   # Ruff for linting
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: "v0.1.13"
