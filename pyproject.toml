@@ -4,6 +4,7 @@ version = "0.0.1"
 description = "Automated content generation tailored to your voice."
 authors = ["Valentin Calomme <valentin.calomme@klm.com>"]
 license = "Valentin Calomme <info@valentincalomme.com>"
+repository = "https://github.com/ValentinCalomme/copywriter"
 readme = "README.md"
 
 [tool.poetry.dependencies]
