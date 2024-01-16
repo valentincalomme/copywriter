@@ -5,27 +5,14 @@ modules = ${SRC_DIR} ${TESTS_DIR}
 
 # Run this command to setup the project
 init:
-	make pre-init
-	make init-routine
-	make post-init
-
-# Main routine used to setup the project
-init-routine:
 	make install
 	make setup-pre-commit
-
-pre-init:
-# Checks that the poetry.lock file exists and is up-to-date
-	poetry check --lock
-
-post-init:
-# Checks that all configs files are valid before doing anything
 	make check-configs
 
 install:
 # Installs all dependencies and synchronize the environment
 # with the locked packages and the specified groups
-	poetry install --sync
+	poetry install --sync --all-extras
 
 check-configs:
 # Validates poetry's config files
@@ -76,4 +63,4 @@ docs-serve:
 build:
 	poetry build
 
-ci: qa docs tests
+ci: check-configs qa docs tests
