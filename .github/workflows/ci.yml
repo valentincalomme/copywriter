@@ -37,12 +37,14 @@ jobs:
           poetry config --unset virtualenvs.create  --local
           poetry config --unset virtualenvs.in-project --local
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v2
+        id: cached-poetry-dependencies
         with:
           path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ matrix.os }}-${{ matrix.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
+          key: poetry-${{ matrix.os }}-${{ matrix.python-version }}-{{ hashFiles('poetry.lock') }}
 
       - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: make install
 
       - name: Run pre-commit hooks
