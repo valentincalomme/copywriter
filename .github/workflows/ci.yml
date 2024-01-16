@@ -32,6 +32,14 @@ jobs:
         with:
           poetry-version: "1.7.1"
 
+      - name: Configure Poetry for CI build
+        run: poetry config --unset virtualenvs.create && poetry config --unset virtualenvs.in-project
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+
       - name: Install dependencies
         run: make install
 
