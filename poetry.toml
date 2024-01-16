@@ -4,7 +4,9 @@
 # For more information: https://python-poetry.org/docs/configuration
 
 [virtualenvs]
-# We do not want Poetry to be responsible for creating virtual environments.
-create = false
-# We want Poetry to look for virtual environments inside the local folder.
+# For local development We do not want Poetry to be responsible for creating
+# virtual environments. Instead, use `python -m venv .venv` to create a virtual
+# environment in the root directory of the repository. This is where poetry will
+# look for the environment.
 in-project = true
+create = false
