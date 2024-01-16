@@ -1,6 +1,6 @@
 [importlinter]
 root_packages=
-    copywriter
+    src.copywriter
     tests
 
 include_external_packages=True
@@ -9,6 +9,6 @@ include_external_packages=True
 name = Application code should not import non-application code (i.e. tests, devtools)
 type = forbidden
 source_modules =
-    copywriter
+    src.copywriter
 forbidden_modules =
     tests
