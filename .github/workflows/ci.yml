@@ -33,12 +33,14 @@ jobs:
           poetry-version: "1.7.1"
 
       - name: Configure Poetry for CI build
-        run: poetry config --unset virtualenvs.create && poetry config --unset virtualenvs.in-project
+        run: |
+          poetry config --unset virtualenvs.create  --local
+          poetry config --unset virtualenvs.in-project --local
 
       - uses: actions/cache@v3
         with:
           path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+          key: ${{ matrix.os }}-${{ matrix.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
 
       - name: Install dependencies
         run: make install

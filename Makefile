@@ -18,30 +18,30 @@ check-configs:
 # Validates poetry's config files
 	poetry check
 # Validates the pre-commit config file.
-	pre-commit validate-config .pre-commit-config.yaml
+	poetry run pre-commit validate-config .pre-commit-config.yaml
 
 setup-pre-commit:
 # Install all pre-commit hooks
-	pre-commit install --install-hooks
+	poetry run pre-commit install --install-hooks
 
 pre-commit:
 # Run all pre-commit hooks
-	pre-commit run --all-files
+	poetry run pre-commit run --all-files
 
 format:
-	ruff format ${modules}
+	poetry run ruff format ${modules}
 
 ruff:
 # Run ruff on all modules
-	ruff check ${modules} --no-fix
+	poetry run ruff check ${modules} --no-fix
 
 mypy:
 # Run mypy on everything
-	mypy .
+	poetry run mypy .
 
 .PHONY: lint-imports
 lint-imports:
-	lint-imports
+	poetry run lint-imports
 
 lint: lint-imports ruff mypy
 
@@ -50,15 +50,15 @@ qa: format lint
 .PHONY: tests
 tests:
 # Run tests (including doctests) and compute coverage
-	pytest --cov=${SRC_DIR} --doctest-modules
+	poetry run pytest --cov=${SRC_DIR} --doctest-modules
 
 .PHONY: docs
 docs:
 # Build the documentation and break on any warnings/errors
-	mkdocs build --strict
+	poetry run mkdocs build --strict
 
 docs-serve:
-	mkdocs serve
+	poetry run mkdocs serve
 
 build:
 	poetry build
