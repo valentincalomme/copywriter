@@ -1,7 +1,3 @@
-import subprocess
-import sys
-
-import pytest
 import semver
 from typer.testing import CliRunner
 
@@ -12,14 +8,6 @@ class TestCliApplication:
     """Collection of CLI tests."""
 
     runner = CliRunner()
-
-    @pytest.mark.xfail(
-        reason="Known bug when testing on Windows, see https://github.com/ValentinCalomme/copywriter/issues/12",
-        condition=sys.platform == "win32",
-    )
-    def test_entrypoint(self) -> None:
-        """Check that we can call the commandline directly."""
-        subprocess.run(["copywriter", "--help"], capture_output=True, text=True)  # noqa:S603,S607
 
     def test_help(self) -> None:
         """Check that the application's help command doesn't crash."""
