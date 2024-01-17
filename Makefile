@@ -63,4 +63,10 @@ docs-serve:
 build:
 	poetry build
 
-ci: check-configs qa docs tests
+cli-checks:
+# Run the command line to make sure it works
+	poetry run python -m copywriter --help > /dev/null
+# Run the command line using the shortcut script
+	poetry run copywriter --help > /dev/null
+
+ci: check-configs qa docs tests cli-checks
