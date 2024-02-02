@@ -15,7 +15,6 @@
 !/.gitignore
 !/.importlinter
 !/.pre-commit-config.yaml
-!/cookiecutter.json
 !/LICENSE
 !/Makefile
 !/mkdocs.yml
